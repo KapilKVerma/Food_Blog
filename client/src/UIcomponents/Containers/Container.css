@@ -1,0 +1,25 @@
+.container-user {
+  padding: 3%;
+  background-color: rgba(2, 248, 56, 0.616);
+  border-radius: 10px;
+  margin: 1%;
+  font-size: small;
+  width: 100%;
+}
+.container-title {
+  font-weight: 700;
+}
+.container-link {
+  font-weight: 700;
+  text-align: end;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.container-body {
+  font-size: small;
+  background-color: white;
+  padding: 1%;
+  border-radius: 50px;
+  width: 100%;
+  padding: 1% 4%;
+}
