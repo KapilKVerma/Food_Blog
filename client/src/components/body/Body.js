@@ -91,7 +91,7 @@ const Body = () => {
             popularRecipes.map((recipe) => {
               return (
                 <Col lg={4} key={recipe._id}>
-                  <CardRecipe recipe={recipe} />{" "}
+                  <CardRecipe recipe={recipe} />
                 </Col>
               );
             })}
