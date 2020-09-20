@@ -9,7 +9,7 @@ app.use(cors());
 app.use("/public", express.static("public"));
 // || "mongodb://localhost/BLOG_app"
 mongoose.connect(
-  "mongodb+srv://foodBlogapp:13ewrvcDIwuXU44r@cluster0.lwr91.mongodb.net/foodBlog_app?retryWrites=true&w=majority",
+  MONGODB_URI,
   {
     useNewUrlParser: true,
     useCreateIndex: true,
