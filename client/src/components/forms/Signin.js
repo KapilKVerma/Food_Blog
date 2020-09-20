@@ -20,7 +20,7 @@ const Signin = () => {
     try {
       const email = signInData.email;
       const password = signInData.password;
-      const signInRes = await Axios.post("http://localhost:5000/user/login", {
+      const signInRes = await Axios.post("/user/login", {
         email,
         password,
       });

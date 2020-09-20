@@ -54,8 +54,10 @@ router.route("/register").post(async (req, res) => {
       subscribed: true,
     });
 
-    const savedUser = await newUser.save();
-    res.json({ message: { msgbdy: "New User Registered" } });
+    const savedUser = await newUser.save((err, user) => {
+      if (err) res.status(500).json(err.message);
+      else res.json({ message: { msgbdy: "New User Registered" } });
+    });
   } catch (err) {
     res.status(500).json(err.message); //internal server error
   }

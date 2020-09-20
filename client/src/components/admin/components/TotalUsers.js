@@ -32,7 +32,7 @@ const TotalUsers = () => {
             color: "white",
           }}
         >
-          {totalUsers ? <div>{totalUsers}</div> : null}
+          {totalUsers ? <div>{totalUsers}</div> : "0"}
         </Card>
       </Row>
     </div>

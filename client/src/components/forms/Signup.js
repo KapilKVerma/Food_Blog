@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect, useRef } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import UserContext from "../../context/UserContext";
@@ -17,25 +17,39 @@ const Signup = () => {
   const { setUserData } = useContext(UserContext);
   const history = useHistory();
 
+  let timerID = useRef(null);
+
+  useEffect(() => {
+    return () => {
+      clearTimeout(timerID);
+    };
+  }, []);
+
+  const resetForm = () => {
+    setSignUpdata({ name: "", email: "", password: "", passwordCheck: "" });
+  };
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
       const newUser = signUpData;
       // Resigter Route
-      await Axios.post("http://localhost:5000/user/register", newUser);
+      await Axios.post("/user/register", newUser);
       const email = signUpData.email;
       const password = signUpData.password;
       // Login Route
-      const loginRes = await Axios.post("http://localhost:5000/user/login", {
+      const loginRes = await Axios.post("/user/login", {
         email,
         password,
       });
+      resetForm();
       setUserData({
         token: loginRes.data.token,
         user: loginRes.data.user,
       });
       localStorage.setItem("auth-token", loginRes.data.token);
-      history.push("/");
+      timerID = setTimeout(() => {
+        history.push("/");
+      }, 1000);
     } catch (error) {
       error.response.data.msg && setError(error.response.data.msg);
     }

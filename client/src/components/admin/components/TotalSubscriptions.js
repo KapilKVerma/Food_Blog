@@ -26,7 +26,7 @@ const TotalSubscriptions = () => {
             color: "white",
           }}
         >
-          {totalSubscriptions ? <div>{totalSubscriptions}</div> : null}
+          {totalSubscriptions ? <div>{totalSubscriptions}</div> : "0"}
         </Card>
       </Row>
     </div>
