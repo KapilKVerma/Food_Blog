@@ -1,0 +1,17 @@
+.recipe-image {
+  height: 50vh;
+  padding: 5%;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.cw-100 {
+  width: 100%;
+}
+
+.preperation-time {
+  font-family: "Pacifico", cursive;
+  font-size: 20px;
+}

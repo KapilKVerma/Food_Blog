@@ -1,7 +1,39 @@
-import React from "react";
-import { Form, Button, Row, Col, Card, Jumbotron } from "react-bootstrap";
+import React, { useState, useContext } from "react";
+import { Form, Button, Row, Col, Jumbotron } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
+import ErrorNotice from "../error/ErrorNotice";
+import UserContext from "../../context/UserContext";
+import Axios from "axios";
 
 const Signin = () => {
+  const [signInData, setSignIndata] = useState({
+    email: "",
+    password: "",
+  });
+  const [error, setError] = useState();
+
+  const { setUserData } = useContext(UserContext);
+  const history = useHistory();
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const email = signInData.email;
+      const password = signInData.password;
+      const signInRes = await Axios.post("http://localhost:5000/user/login", {
+        email,
+        password,
+      });
+      setUserData({
+        token: signInRes.data.token,
+        user: signInRes.data.user,
+      });
+      localStorage.setItem("auth-token", signInRes.data.token);
+      history.push("/");
+    } catch (error) {
+      error.response.data.msg && setError(error.response.data.msg);
+    }
+  };
   return (
     <React.Fragment>
       <Row
@@ -21,17 +53,40 @@ const Signin = () => {
             >
               Sign In
             </h3>
+            {error && (
+              <ErrorNotice
+                message={error}
+                clearError={() => setError(undefined)}
+              />
+            )}
             <Form>
-              <Form.Group controlId="formBasicEmail">
+              <Form.Group>
                 <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" placeholder="Enter email" />
+                <Form.Control
+                  type="email"
+                  placeholder="Enter email"
+                  onChange={(e) => {
+                    setSignIndata({ ...signInData, email: e.target.value });
+                  }}
+                />
               </Form.Group>
-              <Form.Group controlId="formBasicPassword">
+              <Form.Group>
                 <Form.Label>Password</Form.Label>
-                <Form.Control type="text" placeholder="Password" />
+                <Form.Control
+                  type="password"
+                  placeholder="Password"
+                  onChange={(e) => {
+                    setSignIndata({ ...signInData, password: e.target.value });
+                  }}
+                />
               </Form.Group>
 
-              <Button variant="primary" type="submit" className="button">
+              <Button
+                variant="primary"
+                type="submit"
+                className="button"
+                onClick={onSubmit}
+              >
                 Sign in
               </Button>
             </Form>

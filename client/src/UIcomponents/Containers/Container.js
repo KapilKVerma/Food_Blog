@@ -12,9 +12,7 @@ const Container = (props) => {
   return (
     <div className="container-user">
       <Row>
-        <Col>
-          <div className="container-title">{user.name}</div>
-        </Col>
+        <Col className="container-title">{user.name}</Col>
         <Col className="container-link">
           <div onClick={handleShow}>View</div>
         </Col>

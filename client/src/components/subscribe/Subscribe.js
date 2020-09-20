@@ -1,6 +1,6 @@
 import React from "react";
 import Subscribeform from "../forms/Subscribe";
-import { Row, Col, Card, Jumbotron } from "react-bootstrap";
+import { Row, Col, Jumbotron } from "react-bootstrap";
 
 const Subscribe = () => {
   return (
