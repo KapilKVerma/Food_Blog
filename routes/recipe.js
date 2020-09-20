@@ -142,7 +142,6 @@ router.route("/new").post(upload.single("image"), (req, res) => {
 
 // Recipe: update recipe views
 router.route("/:id/updateviews").put((req, res) => {
-  console.log(req.body.views);
   Recipe.findByIdAndUpdate(
     { _id: req.params.id },
     { views: req.body.views },

@@ -49,19 +49,23 @@ router.route("/:id").get((req, res) => {
 
 // Recepie: register users
 router.route("/new").post(upload.single("image"), (req, res) => {
-  Category.findOne({ name: req.body.name.trim() }, (err, category) => {
-    if (category) res.json({ message: "category already exists" });
-    else {
-      const category = new Category({
-        name: req.body.name,
-        image: req.file.fieldname + "-" + req.file.originalname,
-      });
-      category.save((err, category) => {
-        if (err) res.json(err);
-        else res.json({ message: "new category has been created" });
-      });
-    }
-  });
+  try {
+    Category.findOne({ name: req.body.name.trim() }, (err, category) => {
+      if (category) res.json({ message: "category already exists" });
+      else {
+        const category = new Category({
+          name: req.body.name,
+          image: req.file.fieldname + "-" + req.file.originalname,
+        });
+        category.save((err, category) => {
+          if (err) res.json(err);
+          else res.json({ message: "new category has been created" });
+        });
+      }
+    });
+  } catch (error) {
+    res.json({ msg: error.message });
+  }
 });
 
 // Recepie: detele user
