@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Form, Button } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 import ErrorNotice from "../error/ErrorNotice";
 
@@ -10,18 +11,32 @@ const SubscribeForm = () => {
   });
   const [message, setMessage] = useState();
 
+  let timerID = useRef(null);
+  const history = useHistory();
+
+  useEffect(() => {
+    return () => {
+      clearTimeout(timerID);
+    };
+  }, []);
+
   const onSubmit = (e) => {
     e.preventDefault();
     console.log(userData);
     axios
-      .post("http://localhost:5000/subscription/subscribe", userData)
+      .post("/subscription/subscribe", userData)
       .then((res) => {
         setMessage(res.data);
       })
       .catch((error) => {
         console.log(error);
       });
+    if (message == "Subscribed Successfully!")
+      timerID = setTimeout(() => {
+        history.push("/");
+      }, 1000);
   };
+
   return (
     <React.Fragment>
       <div style={{ textAlign: "center" }}>

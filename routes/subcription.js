@@ -21,7 +21,7 @@ router.route("/subscribe").post((req, res) => {
       });
       subscription.save((err, subscription) => {
         if (err) res.json({ message: { msgbdy: err } });
-        else res.json({ message: { msgbdy: "Subscribed Successfull!" } });
+        else res.json({ message: { msgbdy: "Subscribed Successfully!" } });
       });
     }
   });
