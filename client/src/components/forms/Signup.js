@@ -32,7 +32,7 @@ const Signup = () => {
     e.preventDefault();
     try {
       const newUser = signUpData;
-      // Resigter Route       //not working
+      // Resigter Route
       await Axios.post("/user/register", newUser);
       const email = signUpData.email;
       const password = signUpData.password;

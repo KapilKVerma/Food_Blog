@@ -73,7 +73,7 @@ router.route("/").get((req, res) => {
 });
 
 router.route("/:id").get((req, res) => {
-  Recipe.findById({ _id: req.params.id }, (err, recipe) => {
+  Recipe.findById(req.params.id, (err, recipe) => {
     if (err) res.json({ message: { msgbdy: err } });
     else res.json(recipe);
   });
