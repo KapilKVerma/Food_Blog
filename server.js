@@ -11,7 +11,7 @@ app.use(cors());
 app.use("/public", express.static("public"));
 // || "mongodb://localhost/BLOG_app"
 
-mongoose.connect("mongodb://localhost/BLOG_app" || process.env.MONGODB_URI, {
+mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useCreateIndex: true,
   useUnifiedTopology: true,

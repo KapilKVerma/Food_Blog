@@ -129,7 +129,7 @@ router.route("/tokenisvalid").post(async (req, res) => {
     const token = req.header("x-auth-token");
     if (!token) return res.json(false);
 
-    const verified = jwt.verify(token, "C%*J]w9pyq5DEv4]rQD");
+    const verified = jwt.verify(token, JWT_SECRET);
     if (!verified) return res.json(false);
 
     const user = await User.findById(verified.id);
