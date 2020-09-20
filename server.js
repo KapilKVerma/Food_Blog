@@ -2,23 +2,20 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const cors = require("cors");
+const dotenv = require("dotenv");
+dotenv.config();
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || process.env.DEV_PORT;
 app.use(express.json());
 app.use(cors());
 app.use("/public", express.static("public"));
 // || "mongodb://localhost/BLOG_app"
-mongoose.connect(
-  MONGODB_URI,
-  {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useUnifiedTopology: true,
-  },
-  (err) => {
-    console.log(err);
-  }
-);
+
+mongoose.connect("mongodb://localhost/BLOG_app" || process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useUnifiedTopology: true,
+});
 
 const connection = mongoose.connection;
 connection.once("open", () => {
@@ -43,5 +40,5 @@ if (process.env.NODE_ENV === "production") {
 }
 
 app.listen(PORT, (req, res) => {
-  console.log("Server is running ");
+  console.log("Server is running " + process.env.DEV_PORT);
 });
