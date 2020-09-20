@@ -9,7 +9,6 @@ const PORT = process.env.PORT || process.env.DEV_PORT;
 app.use(express.json());
 app.use(cors());
 app.use("/public", express.static("public"));
-// || "mongodb://localhost/BLOG_app"
 
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
