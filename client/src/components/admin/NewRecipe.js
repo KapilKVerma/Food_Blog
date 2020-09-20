@@ -15,7 +15,7 @@ const NewRecipe = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/category/")
+      .get("/category/")
       .then((res) => {
         setCategories(res.data);
       })
@@ -39,7 +39,7 @@ const NewRecipe = () => {
     data.append("youtubeLink", newRecipe.youtubeLink);
 
     axios
-      .post("http://localhost:5000/recipe/new", data)
+      .post("/recipe/new", data)
       .then((res) => {
         console.log(res.data);
       })

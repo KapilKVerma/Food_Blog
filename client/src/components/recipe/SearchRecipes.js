@@ -13,7 +13,7 @@ const SearchRecepies = ({ match }) => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/recipe")
+      .get("/recipe")
       .then((res) => {
         setRecipes(res.data);
       })

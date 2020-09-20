@@ -36,7 +36,7 @@ const Body = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/recipe/")
+      .get("/recipe/")
       .then((res) => {
         getRecentRecipes(res.data, res.data.length);
         getPopularRecipes(res.data);
@@ -46,7 +46,7 @@ const Body = () => {
       });
 
     axios
-      .get("http://localhost:5000/category/")
+      .get("/category/")
       .then((res) => {
         setCategories(res.data);
       })
@@ -112,7 +112,7 @@ const Body = () => {
                   <Card
                     className="categories card-shadow"
                     style={{
-                      backgroundImage: `url(http://localhost:5000/public/images/category/${category.image})`,
+                      backgroundImage: `url(/public/images/category/${category.image})`,
                     }}
                   >
                     <Card.Body className="categories-body">

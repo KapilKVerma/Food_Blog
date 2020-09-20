@@ -31,7 +31,7 @@ const SubscribeForm = () => {
       .catch((error) => {
         console.log(error);
       });
-    if (message == "Subscribed Successfully!")
+    if (message === "Subscribed Successfully!")
       timerID = setTimeout(() => {
         history.push("/");
       }, 1000);

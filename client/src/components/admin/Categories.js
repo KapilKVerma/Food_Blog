@@ -16,7 +16,7 @@ const Categories = () => {
     data.append("image", newCategory.image);
 
     axios
-      .post("http://localhost:5000/category/new", data)
+      .post("/category/new", data)
       .then((res) => {
         console.log(res.data);
       })
@@ -27,7 +27,7 @@ const Categories = () => {
 
   const handleDeleteCategory = (id) => {
     axios
-      .delete(`http://localhost:5000/category/${id}/delete`)
+      .delete(`/category/${id}/delete`)
       .then((res) => {
         console.log(res.data);
       })
@@ -38,7 +38,7 @@ const Categories = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/category/")
+      .get("/category/")
       .then((res) => {
         setCategories(res.data);
       })

@@ -10,7 +10,7 @@ const RecipeComments = (props) => {
   const handleShow = () => setShow(true);
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/comment/${commentId}`)
+      .get(`/comment/${commentId}`)
       .then((res) => {
         setComment(res.data);
       })

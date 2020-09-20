@@ -22,7 +22,7 @@ const Recipe = ({ match }) => {
     const user = userData.user.id;
 
     axios
-      .post("http://localhost:5000/comment/new", { comment, recipeId, user })
+      .post("/comment/new", { comment, recipeId, user })
       .then((res) => {
         console.log(res.data);
       })

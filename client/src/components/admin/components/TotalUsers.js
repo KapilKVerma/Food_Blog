@@ -6,7 +6,7 @@ const TotalUsers = () => {
   const [totalUsers, setTotalUsers] = useState();
   useEffect(() => {
     axios
-      .get("http://localhost:5000/user/all")
+      .get("/user/all")
       .then((res) => {
         setTotalUsers(res.data.length);
       })

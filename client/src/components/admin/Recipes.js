@@ -13,7 +13,7 @@ const Recipes = () => {
 
   const handleDeleteRecipe = (id) => {
     axios
-      .delete(`http://localhost:5000/recipe/${id}/delete`)
+      .delete(`/recipe/${id}/delete`)
       .then((res) => {
         console.log(res.data);
       })
@@ -24,7 +24,7 @@ const Recipes = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/recipe/")
+      .get("/recipe/")
       .then((res) => {
         setRecipes(res.data);
       })
@@ -45,7 +45,7 @@ const Recipes = () => {
                 <Card>
                   <Card.Img
                     variant="top"
-                    src={`http://localhost:5000/public/images/recipes/${recipe.image}`}
+                    src={`/public/images/recipes/${recipe.image}`}
                   />
                   <Card.Body>
                     <Card.Title style={{ fontSize: "14px" }}>

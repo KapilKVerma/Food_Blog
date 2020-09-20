@@ -10,7 +10,7 @@ const CardRecipe = (props) => {
     setViews(views + 1);
 
     axios
-      .put(`http://localhost:5000/recipe/${recipe._id}/updateviews`, {
+      .put(`/recipe/${recipe._id}/updateviews`, {
         views: views + 1,
       })
       .then((res) => console.log(res.data.message))
@@ -29,7 +29,7 @@ const CardRecipe = (props) => {
         <>
           <div
             style={{
-              backgroundImage: `url(http://localhost:5000/public/images/recipes/${recipe.image})`,
+              backgroundImage: `url(/public/images/recipes/${recipe.image})`,
               backgroundPosition: "center",
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",

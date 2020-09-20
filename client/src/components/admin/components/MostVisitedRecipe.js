@@ -21,7 +21,7 @@ const MostVisitedRecipe = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/recipe/")
+      .get("/recipe/")
       .then((res) => {
         findMostViewedRecipe(res.data);
       })
@@ -41,7 +41,7 @@ const MostVisitedRecipe = () => {
                 <Col lg={6}>
                   <div
                     style={{
-                      backgroundImage: `url(http://localhost:5000/public/images/recipes/${recipe.image})`,
+                      backgroundImage: `url(/public/images/recipes/${recipe.image})`,
                       backgroundPosition: "center",
                       backgroundSize: "cover",
                       color: "black",
