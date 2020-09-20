@@ -73,7 +73,7 @@ router.route("/").get((req, res) => {
 });
 
 router.route("/:id").get((req, res) => {
-  Recipe.findOne({ _id: req.params.id }, (err, recipe) => {
+  Recipe.findById({ _id: req.params.id }, (err, recipe) => {
     if (err) res.json({ message: { msgbdy: err } });
     else res.json(recipe);
   });
@@ -83,7 +83,6 @@ router.route("/:id").get((req, res) => {
 
 // recipe: add recipes
 router.route("/new").post(upload.single("image"), (req, res) => {
-  console.log(req.body);
   Recipe.findOne({ name: req.body.name.trim() }, (err, recipe) => {
     if (recipe) res.json({ message: { msgbdy: "this recipe already exists" } });
     else {

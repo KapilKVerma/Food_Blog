@@ -34,7 +34,7 @@ const Recipe = ({ match }) => {
   useEffect(() => {
     try {
       axios
-        .get(`http://localhost:5000/recipe/${match.params.id}`)
+        .get(`/recipe/${match.params.id}`) /// This request is not working.
         .then((res) => {
           setRecipe(res.data);
         });
@@ -49,7 +49,7 @@ const Recipe = ({ match }) => {
         <Jumbotron
           className="page-header page-header-hide shadow"
           style={{
-            backgroundImage: `url(http://localhost:5000/public/images/recipes/${recipe.image})`,
+            backgroundImage: `url(/public/images/recipes/${recipe.image})`,
             height: "70vh",
           }}
         ></Jumbotron>
@@ -61,7 +61,7 @@ const Recipe = ({ match }) => {
               <Card
                 className=" recipe-image"
                 style={{
-                  backgroundImage: `url(http://localhost:5000/public/images/recipes/${recipe.image})`,
+                  backgroundImage: `url(/public/images/recipes/${recipe.image})`,
                 }}
               >
                 <div className="card-title-style">{recipe.name}</div>

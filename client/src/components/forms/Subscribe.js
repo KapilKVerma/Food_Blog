@@ -22,7 +22,7 @@ const SubscribeForm = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log(userData);
+
     axios
       .post("/subscription/subscribe", userData)
       .then((res) => {
