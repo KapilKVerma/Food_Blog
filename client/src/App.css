@@ -4,17 +4,30 @@ body {
 }
 .search-bar {
   height: 10vh;
-  width: 80%;
+  width: 90%;
   margin-top: 2%;
   box-shadow: 0px 0px 18px 1px #777676;
   background-color: rgba(0, 0, 0, 0.5);
   padding-left: 6%;
-  font-size: 30px;
+  font-size: large;
   color: #d5dbdb;
-
   border-top-width: 0px;
   border-left-width: 0px;
   border-right-width: 0px;
+}
+.search-container {
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 5%;
+  border-radius: 5px;
+  font-size: 40px;
+}
+.search-button {
+  width: 20%;
+  padding: 1%;
+  margin: 3%;
+  background-color: rgb(0, 185, 40);
+  border-color: rgba(2, 248, 56, 1);
+  border-radius: 50px;
 }
 .page-header {
   text-align: center;
@@ -146,19 +159,6 @@ h4 {
   padding-bottom: 20px;
   color: #d5dbdb;
 }
-.search-container {
-  background-color: rgba(0, 0, 0, 0.3);
-  padding-top: 0.1%;
-  border-radius: 5px;
-}
-.search-button {
-  width: 20%;
-  padding: 1%;
-  margin: 3%;
-  background-color: rgb(0, 185, 40);
-  border-color: rgba(2, 248, 56, 1);
-  border-radius: 50px;
-}
 
 .signin-form {
   padding-top: 15%;
@@ -179,8 +179,14 @@ h4 {
 }
 
 @media only screen and (max-width: 600px) {
+  .search-container {
+    padding: 10%;
+    font-size: 35px;
+    margin-top: 20%;
+    margin-bottom: 5%;
+  }
   .page-header {
-    margin-top: -20px;
+    padding-top: 30%;
   }
   .page-body {
     font-size: 20px;
@@ -189,11 +195,14 @@ h4 {
   .page-body-heading {
     font-size: 2rem;
   }
+  .page-down-link {
+    padding-top: 5%;
+  }
   .search-bar {
     height: 10vh;
     width: 100%;
     margin-top: 6%;
-    font-size: larger;
+    font-size: large;
   }
   .search-button {
     width: 60%;

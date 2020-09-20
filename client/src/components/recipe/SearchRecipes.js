@@ -53,8 +53,8 @@ const SearchRecepies = ({ match }) => {
         }}
       >
         <Container className="search-container">
-          <Form style={{ margin: "80px 0px" }}>
-            <h1>Discover different flavours of happiness.</h1>
+          <Form>
+            Discover different flavours of happiness.
             <input
               type="text"
               placeholder="Search Recipes..."

@@ -66,7 +66,7 @@ const Body = () => {
               {recentRecipes &&
                 recentRecipes.map((recipe) => {
                   return (
-                    <Col lg={6} key={recipe._id}>
+                    <Col lg={6} key={Math.random()}>
                       <CardRecipe recipe={recipe} />
                     </Col>
                   );
