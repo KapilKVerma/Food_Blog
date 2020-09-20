@@ -41,7 +41,7 @@ const Recipe = ({ match }) => {
     } catch (error) {
       console.log(error.message);
     }
-  }, [submitComment, match.params.id]);
+  }, []);
 
   return (
     <React.Fragment>
