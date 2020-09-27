@@ -58,28 +58,28 @@ const Body = () => {
     <div className="m-3" id="recipe">
       <div className="mt-5">
         <Row>
-          <Col lg={7}>
+          <Col>
             <h1 className="pl-4">Recent Recipes</h1>
             <hr></hr>
             <Row>
               {recentRecipes &&
                 recentRecipes.map((recipe) => {
                   return (
-                    <Col lg={6} key={Math.random()}>
+                    <Col lg={4} key={Math.random()}>
                       <CardRecipe recipe={recipe} />
                     </Col>
                   );
                 })}
             </Row>
           </Col>
-          <Col lg={5}>
+          {/* <Col lg={5}>
             <Card
               className="card-regular intro-card"
               style={{
                 backgroundImage: `url(https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80)`,
               }}
             ></Card>
-          </Col>
+          </Col> */}
         </Row>
       </div>
       <div className="mt-5">

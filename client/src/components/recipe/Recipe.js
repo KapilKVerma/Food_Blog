@@ -150,7 +150,7 @@ const Recipe = ({ match }) => {
             </Row>
           </Col>
           <Col>
-            <Row className="p-3">
+            {/* <Row className="p-3">
               <iframe
                 title="youtube1"
                 width="100%"
@@ -160,7 +160,7 @@ const Recipe = ({ match }) => {
                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               ></iframe>
-            </Row>
+            </Row> */}
           </Col>
         </Row>
       )}
