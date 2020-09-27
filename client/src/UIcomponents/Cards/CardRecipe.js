@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Card, Row, Button } from "react-bootstrap";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const CardRecipe = (props) => {
   const { recipe } = props;
@@ -53,19 +54,20 @@ const CardRecipe = (props) => {
             <Card.Text className="card-body-style ">
               {recipe.description.slice(0, 80)}...
             </Card.Text>
-            <Button
-              href={"/recipe"}
-              variant="dark"
-              size="sm"
-              style={{
-                borderRadius: "50px",
-                padding: "5px 15px",
-              }}
-              className="shadow"
-              onClick={handleViews}
-            >
-              Read More
-            </Button>
+            <Link to="/recipe">
+              <Button
+                variant="dark"
+                size="sm"
+                style={{
+                  borderRadius: "50px",
+                  padding: "5px 15px",
+                }}
+                className="shadow"
+                onClick={handleViews}
+              >
+                Read More
+              </Button>
+            </Link>
           </Card.Body>{" "}
         </>
       ) : null}
