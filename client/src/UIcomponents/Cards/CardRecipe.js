@@ -54,7 +54,7 @@ const CardRecipe = (props) => {
             <Card.Text className="card-body-style ">
               {recipe.description.slice(0, 80)}...
             </Card.Text>
-            <Link to="/recipe">
+            <Link to={"/recipepage/" + recipe._id}>
               <Button
                 variant="dark"
                 size="sm"

@@ -30,7 +30,7 @@ const subscriptionRoutes = require("./routes/subcription");
 const categoryRoutes = require("./routes/category");
 
 app.use("/user", userRoutes);
-app.use("/recipes", recipeRoutes);
+app.use("/recipe", recipeRoutes);
 app.use("/comment", commentRoutes);
 app.use("/category", categoryRoutes);
 app.use("/subscription", subscriptionRoutes);
