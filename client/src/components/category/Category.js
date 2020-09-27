@@ -6,7 +6,7 @@ const Category = (props) => {
   const [category, setCategory] = useState();
   useEffect(() => {
     axios
-      .get(`/category/${props.id}`)
+      .get(`${process.env.REACT_APP_BACKEND}/category/${props.id}`)
       .then((res) => {
         setCategory(res.data);
       })

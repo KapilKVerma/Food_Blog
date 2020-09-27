@@ -39,7 +39,7 @@ const NewRecipe = () => {
     data.append("youtubeLink", newRecipe.youtubeLink);
 
     axios
-      .post("/recipe/new", data)
+      .post(`${process.env.REACT_APP_BACKEND}/recipe/new`, data)
       .then((res) => {
         console.log(res.data);
       })

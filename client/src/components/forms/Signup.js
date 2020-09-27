@@ -33,14 +33,20 @@ const Signup = () => {
     try {
       const newUser = signUpData;
       // Resigter Route
-      await Axios.post("/user/register", newUser);
+      await Axios.post(
+        `${process.env.REACT_APP_BACKEND}/user/register`,
+        newUser
+      );
       const email = signUpData.email;
       const password = signUpData.password;
       // Login Route
-      const loginRes = await Axios.post("/user/login", {
-        email,
-        password,
-      });
+      const loginRes = await Axios.post(
+        `${process.env.REACT_APP_BACKEND}/user/login`,
+        {
+          email,
+          password,
+        }
+      );
       resetForm();
       setUserData({
         token: loginRes.data.token,

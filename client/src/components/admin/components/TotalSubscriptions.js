@@ -5,7 +5,7 @@ const TotalSubscriptions = () => {
   const [totalSubscriptions, setTotalSubscriptions] = useState();
 
   useEffect(() => {
-    axios.get("/subscription").then((res) => {
+    axios.get(`${process.env.REACT_APP_BACKEND}/subscription`).then((res) => {
       setTotalSubscriptions(res.data.length);
     });
   });

@@ -26,14 +26,21 @@ function App() {
         localStorage.setItem("auth-token", "");
         token = "";
       }
-      const tokenRes = await Axios.post("/user/tokenisvalid", null, {
-        headers: { "x-auth-token": token },
-      });
+      const tokenRes = await Axios.post(
+        `${process.env.REACT_APP_BACKEND}/user/tokenisvalid`,
+        null,
+        {
+          headers: { "x-auth-token": token },
+        }
+      );
 
       if (tokenRes.data) {
-        const userRes = await Axios.get("/user/", {
-          headers: { "x-auth-token": token },
-        });
+        const userRes = await Axios.get(
+          `${process.env.REACT_APP_BACKEND}/user/`,
+          {
+            headers: { "x-auth-token": token },
+          }
+        );
         setUserData({
           token,
           user: userRes.data,

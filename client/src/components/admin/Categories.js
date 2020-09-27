@@ -16,7 +16,7 @@ const Categories = () => {
     data.append("image", newCategory.image);
 
     axios
-      .post("/category/new", data)
+      .post(`${process.env.REACT_APP_BACKEND}/category/new`, data)
       .then((res) => {
         console.log(res.data);
       })
@@ -27,7 +27,7 @@ const Categories = () => {
 
   const handleDeleteCategory = (id) => {
     axios
-      .delete(`/category/${id}/delete`)
+      .delete(`${process.env.REACT_APP_BACKEND}/category/${id}/delete`)
       .then((res) => {
         console.log(res.data);
       })
@@ -38,7 +38,7 @@ const Categories = () => {
 
   useEffect(() => {
     axios
-      .get("/category/")
+      .get(`${process.env.REACT_APP_BACKEND}/category/`)
       .then((res) => {
         setCategories(res.data);
       })

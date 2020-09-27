@@ -30,13 +30,12 @@ const Body = () => {
     views = recipes.filter((r) => {
       return r.views > recipeViews[num];
     });
-
     setPopularRecipes(views);
   };
 
   useEffect(() => {
     axios
-      .get("/recipe/")
+      .get(`${process.env.REACT_APP_BACKEND}/recipe/`)
       .then((res) => {
         getRecentRecipes(res.data, res.data.length);
         getPopularRecipes(res.data);
@@ -46,7 +45,7 @@ const Body = () => {
       });
 
     axios
-      .get("/category/")
+      .get(`${process.env.REACT_APP_BACKEND}/category/`)
       .then((res) => {
         setCategories(res.data);
       })
@@ -112,7 +111,7 @@ const Body = () => {
                   <Card
                     className="categories card-shadow"
                     style={{
-                      backgroundImage: `url(/public/images/category/${category.image})`,
+                      backgroundImage: `url(${process.env.REACT_APP_ASSETS_IMAGES}/images/category/${category.image})`,
                     }}
                   >
                     <Card.Body className="categories-body">

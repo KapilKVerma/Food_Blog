@@ -22,7 +22,11 @@ const Recipe = ({ match }) => {
     const user = userData.user.id;
 
     axios
-      .post("/comment/new", { comment, recipeId, user })
+      .post(`${process.env.REACT_APP_BACKEND}/comment/new`, {
+        comment,
+        recipeId,
+        user,
+      })
       .then((res) => {
         console.log(res.data);
       })
@@ -33,7 +37,7 @@ const Recipe = ({ match }) => {
 
   useEffect(() => {
     axios
-      .get(`/recipe/${match.params.id}`) /// This request is not working.
+      .get(`${process.env.REACT_APP_BACKEND}/recipe/${match.params.id}`) /// This request is not working.
       .then((res) => {
         setRecipe(res.data);
       });
@@ -45,7 +49,7 @@ const Recipe = ({ match }) => {
         <Jumbotron
           className="page-header page-header-hide shadow"
           style={{
-            backgroundImage: `url(/public/images/recipes/${recipe.image})`,
+            backgroundImage: `url(${process.env.REACT_APP_ASSETS_IMAGES}/images/recipes/${recipe.image})`,
             height: "70vh",
           }}
         ></Jumbotron>
@@ -57,7 +61,7 @@ const Recipe = ({ match }) => {
               <Card
                 className=" recipe-image"
                 style={{
-                  backgroundImage: `url(/public/images/recipes/${recipe.image})`,
+                  backgroundImage: `url(${process.env.REACT_APP_ASSETS_IMAGES}/images/recipes/${recipe.image})`,
                 }}
               >
                 <div className="card-title-style">{recipe.name}</div>

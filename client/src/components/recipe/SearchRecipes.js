@@ -4,7 +4,7 @@ import { Jumbotron, Container, Form, Row, Col, Button } from "react-bootstrap";
 import CardRecipe from "../../UIcomponents/Cards/CardRecipe";
 import axios from "axios";
 
-const SearchRecepies = ({ match }) => {
+const SearchRecepies = () => {
   const [recipes, setRecipes] = useState("");
   const [query, setQuery] = useState();
   const [searchResult, setSearchResult] = useState();
@@ -13,7 +13,7 @@ const SearchRecepies = ({ match }) => {
 
   useEffect(() => {
     axios
-      .get("/recipe")
+      .get(`${process.env.REACT_APP_BACKEND}/recipe`)
       .then((res) => {
         setRecipes(res.data);
       })

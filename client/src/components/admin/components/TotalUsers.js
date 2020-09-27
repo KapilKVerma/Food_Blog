@@ -6,7 +6,7 @@ const TotalUsers = () => {
   const [totalUsers, setTotalUsers] = useState();
   useEffect(() => {
     axios
-      .get("/user/all")
+      .get(`${process.env.REACT_APP_BACKEND}/user/all`)
       .then((res) => {
         setTotalUsers(res.data.length);
       })

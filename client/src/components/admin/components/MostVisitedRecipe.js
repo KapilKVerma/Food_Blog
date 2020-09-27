@@ -7,12 +7,14 @@ const MostVisitedRecipe = () => {
 
   const findMostViewedRecipe = (recipesData) => {
     let recipesViews = [];
+
     for (let i = 0; i < recipesData.length; i++) {
       recipesViews.push(recipesData[i].views);
     }
     const views = recipesViews.sort(function (a, b) {
       return b - a;
     });
+
     const recipes = recipesData.filter((r) => {
       return r.views > views[2];
     });
@@ -21,7 +23,7 @@ const MostVisitedRecipe = () => {
 
   useEffect(() => {
     axios
-      .get("/recipe/")
+      .get(`${process.env.REACT_APP_BACKEND}/recipe/`)
       .then((res) => {
         findMostViewedRecipe(res.data);
       })
@@ -32,7 +34,7 @@ const MostVisitedRecipe = () => {
 
   return (
     <div>
-      <div> Most Viewed Recipes</div>
+      <div> Most Viewed Recipes (add minimum four recipes)</div>
       {recipes &&
         recipes.map((recipe) => {
           return (
@@ -41,7 +43,7 @@ const MostVisitedRecipe = () => {
                 <Col lg={6}>
                   <div
                     style={{
-                      backgroundImage: `url(/public/images/recipes/${recipe.image})`,
+                      backgroundImage: `url(${process.env.REACT_APP_ASSETS_IMAGES}/images/recipes/${recipe.image})`,
                       backgroundPosition: "center",
                       backgroundSize: "cover",
                       color: "black",

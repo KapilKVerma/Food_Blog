@@ -24,7 +24,7 @@ const SubscribeForm = () => {
     e.preventDefault();
 
     axios
-      .post("/subscription/subscribe", userData)
+      .post(`${process.env.REACT_APP_BACKEND}/subscription/subscribe`, userData)
       .then((res) => {
         setMessage(res.data);
       })
