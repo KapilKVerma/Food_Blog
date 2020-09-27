@@ -21,7 +21,7 @@ const CardRecipe = (props) => {
 
   useEffect(() => {
     if (recipe) setViews(recipe.views);
-  }, []);
+  }, [recipe]);
 
   return (
     <Card className="card-shadow mb-4">

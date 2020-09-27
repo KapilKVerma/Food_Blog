@@ -47,25 +47,21 @@ router.route("/:id").get((req, res) => {
 
 // Implement Multer Here
 
-// Recepie: register users
+// Category: new category route
 router.route("/new").post(upload.single("image"), (req, res) => {
-  try {
-    Category.findOne({ name: req.body.name.trim() }, (err, category) => {
-      if (category) res.json({ message: "category already exists" });
-      else {
-        const category = new Category({
-          name: req.body.name,
-          image: req.file.fieldname + "-" + req.file.originalname,
-        });
-        category.save((err, category) => {
-          if (err) res.json(err);
-          else res.json({ message: "new category has been created" });
-        });
-      }
-    });
-  } catch (error) {
-    res.json({ msg: error.message });
-  }
+  Category.findOne({ name: req.body.name.trim() }, (err, category) => {
+    if (category) res.json({ message: "category already exists" });
+    else {
+      const category = new Category({
+        name: req.body.name,
+        image: req.file.fieldname + "-" + req.file.originalname,
+      });
+      category.save((err, category) => {
+        if (err) res.json(err);
+        else res.json({ message: "new category has been created" });
+      });
+    }
+  });
 });
 
 // Recepie: detele user

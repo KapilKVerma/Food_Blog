@@ -15,7 +15,7 @@ const Recipes = () => {
     axios
       .delete(`/recipe/${id}/delete`)
       .then((res) => {
-        console.log(res.data);
+        setRecipes(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -31,7 +31,7 @@ const Recipes = () => {
       .catch((err) => {
         console.log(err);
       });
-  }, [handleDeleteRecipe]);
+  }, [recipes]);
 
   return (
     <div>

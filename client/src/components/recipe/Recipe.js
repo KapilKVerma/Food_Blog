@@ -32,16 +32,12 @@ const Recipe = ({ match }) => {
   };
 
   useEffect(() => {
-    try {
-      axios
-        .get(`/recipe/${match.params.id}`) /// This request is not working.
-        .then((res) => {
-          setRecipe(res.data);
-        });
-    } catch (error) {
-      console.log(error.message);
-    }
-  }, []);
+    axios
+      .get(`/recipe/${match.params.id}`) /// This request is not working.
+      .then((res) => {
+        setRecipe(res.data);
+      });
+  }, [match.params.id]);
 
   return (
     <React.Fragment>
