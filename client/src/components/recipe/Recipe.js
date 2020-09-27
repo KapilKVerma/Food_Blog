@@ -21,27 +21,28 @@ const Recipe = ({ match }) => {
     const recipeId = match.params.id;
     const user = userData.user.id;
 
-    axios
-      .post(`${process.env.REACT_APP_BACKEND}/comment/new`, {
-        comment,
-        recipeId,
-        user,
-      })
-      .then((res) => {
-        console.log(res.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    // axios
+    //   .post(`${process.env.REACT_APP_BACKEND}/comment/new`, {
+    //     comment,
+    //     recipeId,
+    //     user,
+    //   })
+    //   .then((res) => {
+    //     console.log(res.data);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
   };
 
   useEffect(() => {
-    axios
-      .get(`${process.env.REACT_APP_BACKEND}/recipe/${match.params.id}`)
-      .then((res) => {
-        // setRecipe(res.data);
-        console.log(res.data);
-      });
+    // axios
+    //   .get(`${process.env.REACT_APP_BACKEND}/recipe/${match.params.id}`)
+    //   .then((res) => {
+    //     // setRecipe(res.data);
+    //     console.log(res.data);
+    //   });
+    alert("This is recipe page");
   }, [match.params.id]);
 
   return (

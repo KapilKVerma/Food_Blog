@@ -65,10 +65,8 @@ function App() {
             {userData.user && userData.user.name === "admin" ? (
               <Route path="/admin" exact component={Admin} />
             ) : null}
-            <Route path="/recipe/:id">
-              <Recipe />
-            </Route>
-            <Route path="/searchrecepies" exact component={SearchRecipes} />
+            <Route path="/recipe" exact component={Recipe} />
+            <Route path="/searchrecipes" exact component={SearchRecipes} />
             <Route path="/subscribe" exact component={Subscribe} />
             <Route path="/signup" exact component={Signup} />
             <Route path="/signin" exact component={Signin} />
