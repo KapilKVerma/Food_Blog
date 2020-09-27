@@ -3,7 +3,7 @@ import { Jumbotron, Row, Col, Card, Button, Form } from "react-bootstrap";
 import axios from "axios";
 import UserContext from "../../context/UserContext";
 import RecipeComments from "./RecipeComments";
-import "./Recipe.css";
+// import "./Recipe.css";
 
 const Recipe = ({ match }) => {
   const { userData } = useContext(UserContext);
@@ -37,7 +37,7 @@ const Recipe = ({ match }) => {
 
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_BACKEND}/recipe/${match.params.id}`) /// This request is not working.
+      .get(`${process.env.REACT_APP_BACKEND}/recipe/${match.params.id}`)
       .then((res) => {
         setRecipe(res.data);
       });
@@ -150,7 +150,7 @@ const Recipe = ({ match }) => {
             </Row>
           </Col>
           <Col>
-            {/* <Row className="p-3">
+            <Row className="p-3">
               <iframe
                 title="youtube1"
                 width="100%"
@@ -160,7 +160,7 @@ const Recipe = ({ match }) => {
                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               ></iframe>
-            </Row> */}
+            </Row>
           </Col>
         </Row>
       )}
