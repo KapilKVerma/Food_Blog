@@ -7,7 +7,7 @@ import "./Recipe.css";
 
 const Recipe = ({ match }) => {
   const { userData } = useContext(UserContext);
-  const [recipe, setRecipe] = useState("This page is for recipe details.");
+  const [recipe, setRecipe] = useState();
 
   const [commentData, setCommentData] = useState({
     comment: "",
@@ -21,34 +21,32 @@ const Recipe = ({ match }) => {
     const recipeId = match.params.id;
     const user = userData.user.id;
 
-    // axios
-    //   .post(`${process.env.REACT_APP_BACKEND}/comment/new`, {
-    //     comment,
-    //     recipeId,
-    //     user,
-    //   })
-    //   .then((res) => {
-    //     console.log(res.data);
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
+    axios
+      .post(`${process.env.REACT_APP_BACKEND}/comment/new`, {
+        comment,
+        recipeId,
+        user,
+      })
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   useEffect(() => {
-    // axios
-    //   .get(`${process.env.REACT_APP_BACKEND}/recipe/${match.params.id}`)
-    //   .then((res) => {
-    //     // setRecipe(res.data);
-    //     console.log(res.data);
-    //   });
-    alert("This is recipe page");
+    axios
+      .get(`${process.env.REACT_APP_BACKEND}/recipe/${match.params.id}`)
+      .then((res) => {
+        setRecipe(res.data);
+      });
   }, [match.params.id]);
 
   return (
     <React.Fragment>
       {recipe && <div>{recipe}</div>}
-      {/* {recipe && (
+      {recipe && (
         <Jumbotron
           className="page-header page-header-hide shadow"
           style={{
@@ -166,7 +164,7 @@ const Recipe = ({ match }) => {
             </Row>
           </Col>
         </Row>
-      )} */}
+      )}
     </React.Fragment>
   );
 };
