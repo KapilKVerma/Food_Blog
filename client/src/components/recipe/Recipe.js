@@ -7,7 +7,7 @@ import "./Recipe.css";
 
 const Recipe = ({ match }) => {
   const { userData } = useContext(UserContext);
-  const [recipe, setRecipe] = useState();
+  const [recipe, setRecipe] = useState("This page is for recipe details.");
 
   const [commentData, setCommentData] = useState({
     comment: "",
@@ -39,13 +39,14 @@ const Recipe = ({ match }) => {
     axios
       .get(`${process.env.REACT_APP_BACKEND}/recipe/${match.params.id}`)
       .then((res) => {
-        setRecipe(res.data);
+        // setRecipe(res.data);
+        console.log(res.data);
       });
   }, [match.params.id]);
 
   return (
     <React.Fragment>
-      {recipe && <div>{recipe.name}</div>}
+      {recipe && <div>{recipe}</div>}
       {/* {recipe && (
         <Jumbotron
           className="page-header page-header-hide shadow"
