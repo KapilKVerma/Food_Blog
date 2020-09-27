@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
 import Navigation from "./components/navigation/Navigation";
 import Home from "./components/home/Home";
 import Footer from "./components/footer/Footer";
@@ -55,15 +60,18 @@ function App() {
       <Router>
         <UserContext.Provider value={{ userData, setUserData }}>
           <Navigation />
-          <Route path="/" exact component={Home} />
-          {userData.user && userData.user.name === "admin" ? (
-            <Route path="/admin" exact component={Admin} />
-          ) : null}
-          <Route path="/recipe/:id" exact component={Recipe} />
-          <Route path="/searchrecepies" exact component={SearchRecipes} />
-          <Route path="/subscribe" exact component={Subscribe} />
-          <Route path="/signup" exact component={Signup} />
-          <Route path="/signin" exact component={Signin} />
+          <Switch>
+            <Route path="/" exact component={Home} />
+            {userData.user && userData.user.name === "admin" ? (
+              <Route path="/admin" exact component={Admin} />
+            ) : null}
+            <Route path="/recipe/:id" exact component={Recipe} />
+            <Route path="/searchrecepies" exact component={SearchRecipes} />
+            <Route path="/subscribe" exact component={Subscribe} />
+            <Route path="/signup" exact component={Signup} />
+            <Route path="/signin" exact component={Signin} />
+            <Redirect to="/" />
+          </Switch>
           <Footer />
         </UserContext.Provider>
       </Router>

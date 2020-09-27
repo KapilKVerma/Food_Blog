@@ -88,6 +88,11 @@ const Navigation = (props) => {
             }}
           >
             <h4>
+              <Link to="/" className="menu-links" onClick={handleClose}>
+                Home
+              </Link>
+            </h4>
+            <h4>
               <Link to="/about" className="menu-links" onClick={handleClose}>
                 About
               </Link>
