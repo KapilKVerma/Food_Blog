@@ -152,9 +152,8 @@ const Recipe = ({ match }) => {
               </Card>
             </Row>
           </Col>
-        </Row>
-      ) : null}
-      {/*     <Col>
+
+          <Col>
             <Row className="p-3">
               <iframe
                 title="youtube1"
@@ -168,7 +167,7 @@ const Recipe = ({ match }) => {
             </Row>
           </Col>
         </Row>
-      )} */}
+      ) : null}
     </React.Fragment>
   );
 };
