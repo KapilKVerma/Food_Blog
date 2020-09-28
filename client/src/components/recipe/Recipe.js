@@ -9,6 +9,7 @@ const Recipe = ({ match }) => {
   const { userData } = useContext(UserContext);
   const [recipe, setRecipe] = useState("This page is for recipe details.");
   const [comments, setComments] = useState();
+  const [newComment, setNewcomment] = useState(false);
 
   const [commentData, setCommentData] = useState({
     comment: "",
@@ -17,7 +18,6 @@ const Recipe = ({ match }) => {
 
   const submitComment = (e) => {
     e.preventDefault();
-
     const comment = commentData.comment;
     const recipeId = match.params.id;
     const user = userData.user.id;
@@ -30,6 +30,7 @@ const Recipe = ({ match }) => {
       })
       .then((res) => {
         console.log(res.data);
+        setNewcomment(true);
       })
       .catch((error) => {
         console.log(error);
@@ -37,13 +38,14 @@ const Recipe = ({ match }) => {
   };
 
   useEffect(() => {
+    setNewcomment(false);
     axios
       .get(`${process.env.REACT_APP_BACKEND}/recipe/${match.params.id}`)
       .then((res) => {
         setRecipe(res.data);
         setComments(res.data.comments.length);
       });
-  }, [match.params.id]);
+  }, [match.params.id, newComment]);
 
   return (
     <React.Fragment>

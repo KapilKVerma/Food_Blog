@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Row, Col, Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import CardRecipe from "../../UIcomponents/Cards/CardRecipe";
 import axios from "axios";
 
@@ -108,16 +109,18 @@ const Body = () => {
                   style={{ textAlign: "center", paddingTop: "2%" }}
                   key={category._id}
                 >
-                  <Card
-                    className="categories card-shadow"
-                    style={{
-                      backgroundImage: `url(${process.env.REACT_APP_ASSETS_IMAGES}/images/category/${category.image})`,
-                    }}
-                  >
-                    <Card.Body className="categories-body">
-                      {category.name}
-                    </Card.Body>
-                  </Card>
+                  <Link to={"/categoryrecipes/" + category._id}>
+                    <Card
+                      className="categories card-shadow"
+                      style={{
+                        backgroundImage: `url(${process.env.REACT_APP_ASSETS_IMAGES}/images/category/${category.image})`,
+                      }}
+                    >
+                      <Card.Body className="categories-body">
+                        {category.name}
+                      </Card.Body>
+                    </Card>
+                  </Link>
                 </Col>
               );
             })}

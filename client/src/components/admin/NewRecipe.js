@@ -15,7 +15,7 @@ const NewRecipe = () => {
 
   useEffect(() => {
     axios
-      .get("/category/")
+      .get(`${process.env.REACT_APP_BACKEND}/category/`)
       .then((res) => {
         setCategories(res.data);
       })

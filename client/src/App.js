@@ -15,6 +15,7 @@ import Signup from "./components/signup/Signup";
 import Signin from "./components/forms/Signin";
 import Admin from "./components/admin/Admin";
 import UserContext from "./context/UserContext";
+import CategoryRecipe from "./components/categoryRecipe/CategoryRecipe";
 import "./App.css";
 import Axios from "axios";
 
@@ -70,6 +71,12 @@ function App() {
               <Route path="/admin" exact component={Admin} />
             ) : null}
             <Route path="/recipepage/:id" exact component={Recipe} />
+            <Route
+              path="/categoryrecipes/:id"
+              exact
+              component={CategoryRecipe}
+            />
+
             <Route path="/searchrecipes" exact component={SearchRecipes} />
             <Route path="/subscribe" exact component={Subscribe} />
             <Route path="/signup" exact component={Signup} />
