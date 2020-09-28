@@ -25,34 +25,38 @@ function App() {
   });
 
   useEffect(() => {
-    const checkLoggedIn = async () => {
-      let token = localStorage.getItem("auth-token");
-      if (token === null) {
-        localStorage.setItem("auth-token", "");
-        token = "";
-      }
-      const tokenRes = await Axios.post(
-        `${process.env.REACT_APP_BACKEND}/user/tokenisvalid`,
-        null,
-        {
-          headers: { "x-auth-token": token },
+    try {
+      const checkLoggedIn = async () => {
+        let token = localStorage.getItem("auth-token");
+        if (token === null) {
+          localStorage.setItem("auth-token", "");
+          token = "";
         }
-      );
-
-      if (tokenRes.data) {
-        const userRes = await Axios.get(
-          `${process.env.REACT_APP_BACKEND}/user/`,
+        const tokenRes = await Axios.post(
+          `${process.env.REACT_APP_BACKEND}/user/tokenisvalid`,
+          null,
           {
             headers: { "x-auth-token": token },
           }
         );
-        setUserData({
-          token,
-          user: userRes.data,
-        });
-      }
-    };
-    checkLoggedIn();
+
+        if (tokenRes.data) {
+          const userRes = await Axios.get(
+            `${process.env.REACT_APP_BACKEND}/user/`,
+            {
+              headers: { "x-auth-token": token },
+            }
+          );
+          setUserData({
+            token,
+            user: userRes.data,
+          });
+        }
+      };
+      checkLoggedIn();
+    } catch (error) {
+      console.log(error);
+    }
   }, []);
 
   return (

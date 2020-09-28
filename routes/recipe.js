@@ -149,7 +149,7 @@ router.route("/:id/updateviews").put((req, res) => {
       if (err) res.json({ message: { msgbdy: err } });
       else
         res.json({
-          message: { msgbdy: "Recipe has been updated successfully." },
+          message: { msgbdy: "View added." },
         });
     }
   );
