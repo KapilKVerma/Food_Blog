@@ -72,7 +72,7 @@ const Recipe = ({ match }) => {
             <Row className="card-user-responses mt-2 mb-2">
               <div style={{ width: "50%" }}> Views: {recipe.views}</div>
               <div style={{ width: "50%", textAlign: "end" }}>
-                Comments: {comments && <div>{comments.length}</div>}
+                Comments: {comments && comments}
               </div>
             </Row>
             {recipe.comments &&
