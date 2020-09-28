@@ -16,7 +16,7 @@ const Home = () => {
           <div className="page-body">
             <div className="page-body-heading">Amit Arora's Kitchen.</div>
             <p>This text to be taken by amit.</p>
-            <Link to="/searchrecepies">
+            <Link to="/searchrecipes">
               Search Recipes...
               <i className="fas fa-search"></i>
             </Link>{" "}
