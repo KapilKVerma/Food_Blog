@@ -47,8 +47,7 @@ const Recipe = ({ match }) => {
 
   return (
     <React.Fragment>
-      {recipe && <div>{recipe}</div>}
-      {/* {recipe && (
+      {recipe && (
         <Jumbotron
           className="page-header page-header-hide shadow"
           style={{
@@ -57,7 +56,7 @@ const Recipe = ({ match }) => {
           }}
         ></Jumbotron>
       )}
-      {recipe && (
+      {/*   {recipe && (
         <Row className="m-1 pt-5">
           <Col lg={3} className="m-3 ">
             <Row>
