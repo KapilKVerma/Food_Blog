@@ -39,8 +39,7 @@ const Recipe = ({ match }) => {
     axios
       .get(`${process.env.REACT_APP_BACKEND}/recipe/${match.params.id}`)
       .then((res) => {
-        // setRecipe(res.data);
-        console.log(res.data);
+        setRecipe(res.data);
       });
     alert("This is recipe page");
   }, [match.params.id]);
