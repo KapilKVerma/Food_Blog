@@ -41,7 +41,6 @@ const Recipe = ({ match }) => {
       .then((res) => {
         setRecipe(res.data);
       });
-    alert("This is recipe page");
   }, [match.params.id]);
 
   return (
@@ -55,7 +54,7 @@ const Recipe = ({ match }) => {
           }}
         ></Jumbotron>
       )}
-      {/*   {recipe && (
+      {recipe && (
         <Row className="m-1 pt-5">
           <Col lg={3} className="m-3 ">
             <Row>
@@ -118,7 +117,9 @@ const Recipe = ({ match }) => {
               </Row>
             ) : null}
           </Col>
-          <Col lg={5}>
+        </Row>
+      )}
+      {/*    <Col lg={5}>
             <Row>
               <Card className="p-3 m-3 cw-100 card-regular">
                 <Card.Body>
