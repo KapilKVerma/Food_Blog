@@ -8,6 +8,7 @@ import "./Recipe.css";
 const Recipe = ({ match }) => {
   const { userData } = useContext(UserContext);
   const [recipe, setRecipe] = useState("This page is for recipe details.");
+  const [comments, setComments] = useState();
 
   const [commentData, setCommentData] = useState({
     comment: "",
@@ -40,6 +41,7 @@ const Recipe = ({ match }) => {
       .get(`${process.env.REACT_APP_BACKEND}/recipe/${match.params.id}`)
       .then((res) => {
         setRecipe(res.data);
+        setComments(res.data.comments.length);
       });
   }, [match.params.id]);
 
@@ -70,7 +72,7 @@ const Recipe = ({ match }) => {
             <Row className="card-user-responses mt-2 mb-2">
               <div style={{ width: "50%" }}> Views: {recipe.views}</div>
               <div style={{ width: "50%", textAlign: "end" }}>
-                Comments: {recipe.comments.length}
+                Comments: {comments && <div>{comments.length}</div>}
               </div>
             </Row>
             {recipe.comments &&
