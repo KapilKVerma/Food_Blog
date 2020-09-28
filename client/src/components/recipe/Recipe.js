@@ -56,7 +56,7 @@ const Recipe = ({ match }) => {
           }}
         ></Jumbotron>
       )}
-      {recipe && (
+      {recipe ? (
         <Row className="m-1 pt-5">
           <Col lg={3} className="m-3 ">
             <Row>
@@ -119,9 +119,8 @@ const Recipe = ({ match }) => {
               </Row>
             ) : null}
           </Col>
-        </Row>
-      )}
-      {/*    <Col lg={5}>
+
+          <Col lg={5}>
             <Row>
               <Card className="p-3 m-3 cw-100 card-regular">
                 <Card.Body>
@@ -153,7 +152,9 @@ const Recipe = ({ match }) => {
               </Card>
             </Row>
           </Col>
-          <Col>
+        </Row>
+      ) : null}
+      {/*     <Col>
             <Row className="p-3">
               <iframe
                 title="youtube1"
