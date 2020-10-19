@@ -67,9 +67,10 @@ function App() {
           <Navigation />
           <Switch>
             <Route path="/" exact component={Home} />
-            {userData.user && userData.user.name === "admin" ? (
+            {/* {userData.user && userData.user.name === "admin" ? (
               <Route path="/admin" exact component={Admin} />
-            ) : null}
+            ) : null} */}
+            <Route path="/admin" exact component={Admin} />
             <Route path="/recipepage/:id" exact component={Recipe} />
             <Route
               path="/categoryrecipes/:id"
@@ -83,9 +84,9 @@ function App() {
             <Route path="/signin" exact component={Signin} />
             <Redirect to="/" />
           </Switch>
-          <Footer />
         </UserContext.Provider>
       </Router>
+      <Footer />
     </React.Fragment>
   );
 }
